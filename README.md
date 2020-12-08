@@ -8,7 +8,9 @@ const brainstorm: (subject: Inspiration | Idea) => Promise<Idea>
   = sketchOut(inspiration);
 
 const design: (idea: Promise<Idea>) => Promise<Design>
-  = (idea.concreteEnough) ? figma(idea) : brainstorm(idea);
+  = (idea.concreteEnough)
+    ? figma(idea)
+    : brainstorm(idea);
 
 const develop: (design: Promise<Design>) => Promise<Implementation>
   = vsCode(design);
@@ -18,9 +20,9 @@ const wouter = (inspiration: Inspiration) =>
 
 ```
 
-<center>
+<div align="center">
 Have a look at my projects.
 <br/>
 <br/>
 ⚠WARNING: Cool stuff ahead.
-</center>
+</div>
