@@ -1,6 +1,7 @@
 # Hi there 👋
 
 ```ts
+// About me
 
 type Idea = Readonly<{
   concreteEnough: boolean;
@@ -20,7 +21,6 @@ const develop: (design: Promise<Design>) => Promise<Implementation>
 
 const wouter = (inspiration: Inspiration) =>
   develop(design(brainstorm(inspiration)));
-
 ```
 
 <div align="center">
