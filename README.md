@@ -9,7 +9,7 @@ type Idea = Readonly<{
 }>;
 
 const brainstorm: (subject: Inspiration | Promise<Idea>) => Promise<Idea>
-  = sketchOut(inspiration);
+  = sketchOut(subject);
 
 const design: (idea: Promise<Idea>) => Promise<Design>
   = (idea.concreteEnough && idea.meetsExpectations)
