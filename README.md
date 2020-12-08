@@ -2,15 +2,18 @@
 
 ```ts
 
-type Idea = Readonly<{ concreteEnough: boolean /*...*/ }>;
+type Idea = Readonly<{
+  concreteEnough: boolean;
+  meetsExpectations: boolean;
+}>;
 
-const brainstorm: (subject: Inspiration | Idea) => Promise<Idea>
+const brainstorm: (subject: Inspiration | Promise<Idea>) => Promise<Idea>
   = sketchOut(inspiration);
 
 const design: (idea: Promise<Idea>) => Promise<Design>
-  = (idea.concreteEnough)
-    ? figma(idea)
-    : brainstorm(idea);
+  = (idea.concreteEnough && idea.meetsExpectations)
+    ? makeMockups(idea)
+    : design(brainstorm(idea));
 
 const develop: (design: Promise<Design>) => Promise<Implementation>
   = vsCode(design);
