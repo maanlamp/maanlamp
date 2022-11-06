@@ -8,16 +8,16 @@ type Idea = Readonly<{
   meetsExpectations: boolean;
 }>;
 
-const brainstorm: (subject: Inspiration | Promise<Idea>): Promise<Idea> =>
-  = sketchOut(subject);
+const brainstorm = (subject: Inspiration | Promise<Idea>): Promise<Idea> =>
+  sketchOut(subject);
 
-const design: (idea: Promise<Idea>): Promise<Design> =>
-  = (idea.concreteEnough && idea.meetsExpectations)
+const design = (idea: Promise<Idea>): Promise<Design> =>
+  (idea.concreteEnough && idea.meetsExpectations)
     ? makeMockups(idea)
     : design(brainstorm(idea));
 
-const develop: (design: Promise<Design>): Promise<Implementation> =>
-  = vsCode(design);
+const develop = (design: Promise<Design>): Promise<Implementation> =>
+  vsCode(design);
 
 const wouter = (inspiration: Inspiration) =>
   develop(design(brainstorm(inspiration)));
